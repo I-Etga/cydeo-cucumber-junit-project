@@ -33,33 +33,30 @@ public class Wikipedia_StepDefinitions {
         BrowserUtils.verifyTitle("Wikipedia");
     }
 
-
-    @When("user types Steve Jobs in the wiki search box")
-    public void user_types_steve_jobs_in_the_wiki_search_box() {
-
-        wikipediaPage.searchBox.sendKeys("Steve Jobs");
-
-    }
-
     @And("user clicks wiki search button")
     public void user_clicks_wiki_search_button() {
         wikipediaPage.submitButton.click();
     }
 
-    @When("user sees Steve Jobs is in the wiki title")
-    public void user_sees_steve_jobs_is_in_the_wiki_title() {
-        BrowserUtils.verifyTitle("Steve Jobs – Wikipedia");
-    }
-
-    @Then("user sees Steve Jobs is in the main header")
-    public void userSeesSteveJobsIsInTheMainHeader() {
-
-        Assert.assertEquals(wikipediaPage.header.getText(), "Steve Jobs");
+    @When("user types {string} in the wiki search box")
+    public void userTypesInTheWikiSearchBox(String searchValue) {
+        wikipediaPage.searchBox.sendKeys(searchValue);
 
     }
 
-    @Then("user sees Steve Jobs is in the image header")
-    public void userSeesSteveJobsIsInTheImageHeader() {
-        Assert.assertTrue(wikipediaPage.imgHeader.isDisplayed());
+    @Then("user sees {string} is in the wiki title")
+    public void userSeesIsInTheWikiTitle(String expectedTitle) {
+        BrowserUtils.verifyTitle(expectedTitle);
+    }
+
+    @Then("user sees {string} is in the image header")
+    public void userSeesIsInTheImageHeader(String expectedHeaderText) {
+        String actualHeaderText = wikipediaPage.imgHeader.getText();
+        Assert.assertEquals(expectedHeaderText, actualHeaderText);
+    }
+
+    @Then("user sees {string} is in the main header")
+    public void userSeesIsInTheMainHeader(String expectedText) {
+        Assert.assertEquals(wikipediaPage.header.getText(), expectedText);
     }
 }
