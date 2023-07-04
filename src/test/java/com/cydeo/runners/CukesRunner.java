@@ -7,11 +7,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "html:target/cucumber-reports.html",
+        plugin = {"html:target/cucumber-reports.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+        },
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = true ,
-        tags = "", // @admin or @student or @regression
+        dryRun = false,// [true] it checks if all snippets are implemented.
+        tags = "@today", // @admin or @student or @regression
         publish = true
 )
 public class CukesRunner {

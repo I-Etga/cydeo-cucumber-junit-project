@@ -118,4 +118,15 @@ public class BrowserUtils {
         return actualMonth_as_STRING;
 
     }
+
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
+
+        for (WebElement each : radioButtons) {
+
+            if (each.getAttribute("value").equals(attributeValue)) {
+                each.click();
+            }
+        }
+
+    }
 }
