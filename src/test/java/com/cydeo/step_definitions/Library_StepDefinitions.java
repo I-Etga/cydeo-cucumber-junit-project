@@ -7,14 +7,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Library_StepDefinitions {
-    @Given("user in on the page of the library application")
+    @Given("user is on the login page of the library application")
     public void user_in_on_the_page_of_the_library_application() {
         //TODO: FIX THIS OVER HERE
         // TODO: CHANGE THIS LOCATOR WITH SOMETHING BETTER
         System.out.println("user in on the page of the library application");
     }
 
-    @When("user enter librarian username")
+    @When("user enters librarian username")
     public void user_enter_librarian_username() {
         System.out.println("user enter librarian username");
     }
@@ -24,12 +24,12 @@ public class Library_StepDefinitions {
         System.out.println("user enters librarian password");
     }
 
-    @Then("user  should see the dashboard")
+    @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
         System.out.println("user  should see the dashboard");
     }
 
-    @When("user enter student username")
+    @When("user enters student username")
     public void userEnterStudentUsername() {
         System.out.println("user enter student username");
     }
@@ -39,7 +39,7 @@ public class Library_StepDefinitions {
         System.out.println("user enters student password");
     }
 
-    @When("user enter admin username")
+    @When("user enters admin username")
     public void userEnterAdminUsername() {
         System.out.println("user enter admin username");
     }

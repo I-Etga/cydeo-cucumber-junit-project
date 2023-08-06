@@ -32,15 +32,12 @@ public class VYTrack_Login_StepDefinitions {
 
     @Then("user should be able to login")
     public void user_should_be_able_to_login() {
-        String actualTitle = Driver.getDriver().getTitle();
-        String expectedTitle = "Dashboard";
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.titleIs("Dashboard"));
-        
 
-        //BrowserUtils.waitFor(3);
-
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedTitle = "Dashboard";
         Assert.assertEquals("login error", expectedTitle, actualTitle);
 
     }
